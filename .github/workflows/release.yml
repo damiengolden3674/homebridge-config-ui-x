@@ -11,6 +11,10 @@ jobs:
     uses: homebridge/.github/.github/workflows/nodejs-build-and-test.yml@main
     with:
       enable_coverage: true
+<<<<<<< HEAD
+=======
+      install_cmd: npm ci && cd ui && npm ci
+>>>>>>> bce11c6ad57c5f8ecac5897813759505e726cb59
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -20,5 +24,10 @@ jobs:
     if: ${{ github.repository == 'homebridge/homebridge-config-ui-x' }}
 
     uses: homebridge/.github/.github/workflows/npm-publish.yml@main
+<<<<<<< HEAD
+=======
+    with:
+      install_cmd: npm ci && cd ui && npm ci
+>>>>>>> bce11c6ad57c5f8ecac5897813759505e726cb59
     secrets:
       npm_auth_token: ${{ secrets.npm_token }}

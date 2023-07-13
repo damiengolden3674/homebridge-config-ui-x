@@ -10,11 +10,23 @@ jobs:
     uses: homebridge/.github/.github/workflows/nodejs-build-and-test.yml@main
     with:
       enable_coverage: true
+<<<<<<< HEAD
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
   lint:
     needs: build_and_test
     uses: homebridge/.github/.github/workflows/eslint.yml@main
+=======
+      install_cmd: npm ci && cd ui && npm ci
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}
+
+  lint:
+    needs: build_and_test
+    uses: homebridge/.github/.github/workflows/eslint.yml@main
+    with:
+      install_cmd: npm ci && cd ui && npm ci
+>>>>>>> bce11c6ad57c5f8ecac5897813759505e726cb59
 
   publish:
     needs: lint
@@ -26,6 +38,11 @@ jobs:
       tag: 'test'
       dynamically_adjust_version: true
       npm_version_command: 'pre'
+<<<<<<< HEAD
       pre_id: 'beta'
+=======
+      pre_id: 'test'
+      install_cmd: npm ci && cd ui && npm ci
+>>>>>>> bce11c6ad57c5f8ecac5897813759505e726cb59
     secrets:
       npm_auth_token: ${{ secrets.npm_token }}
